@@ -9,6 +9,7 @@ def get_random_word():
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 def display_dashes_and_chars(secret_word, correct_guessed_chars) -> bool:
+    """Displays dashes and character guesses."""
     word_guessed = True
     for char in secret_word:
         if char in correct_guessed_chars:
@@ -19,10 +20,19 @@ def display_dashes_and_chars(secret_word, correct_guessed_chars) -> bool:
     return word_guessed
 
 def display_game_state(mistakes: int,secret_word: str, correct_guessed_letters: list) -> bool:
+    """Displays game state after a new guess"""
     print(aa.STAGES[mistakes])
     return display_dashes_and_chars(secret_word, correct_guessed_letters)
 
 def play_game():
+    """ Contains the game logic:
+    Stage 0: Welcome the player
+    Stage 1: Show the snowman
+    Stage 2: Guess a letter
+    Stage 3: feedback if the letter was guessed correctly and at what place the letter fits
+    
+
+    """
     secret_word = get_random_word()
     print("Welcome to Snowman Meltdown!")
     print("Secret word selected: " + secret_word)  # for testing, later remove this line
